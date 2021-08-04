@@ -41,7 +41,7 @@ def get_upsert_query():
 
 
 def get_select_query_for_insert():
-    return f"""
+    return """
         SELECT
              DATE_FORMAT(o.o_orderdate, "%Y%m%d") AS d_id,
              o.o_orderdate AS d_date,
@@ -56,9 +56,9 @@ def get_select_query_for_insert():
         FROM orders AS o
         JOIN lineitem AS l ON l.l_orderkey = o.o_orderkey
         GROUP BY d_date
-    
+
         UNION
-    
+
         SELECT
              DATE_FORMAT(l.l_commitdate, "%Y%m%d") AS d_id,
              l.l_commitdate AS d_date,
@@ -73,9 +73,9 @@ def get_select_query_for_insert():
         FROM orders AS o
         JOIN lineitem AS l ON l.l_orderkey = o.o_orderkey
         GROUP BY d_date
-    
+
         UNION
-    
+
         SELECT
              DATE_FORMAT(l.l_receiptdate, "%Y%m%d") AS d_id,
              l.l_receiptdate AS d_date,
