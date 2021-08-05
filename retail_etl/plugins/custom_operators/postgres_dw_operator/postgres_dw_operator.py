@@ -7,6 +7,14 @@ from custom_operators.postgres_dw_operator import helper
 
 class PostgresDwOperator(BaseOperator):
     def __init__(self, pandas_read_config: Dict, postgres_load_config: Dict, *args, **kwargs):
+        """
+        Operator to extract data from MySQL database then load it to Postgres DW.
+
+        :param pandas_read_args: The arguments that will be used for reading data from MySQL.
+        :param data_load_args: A key/value pair with the args that will be used for loading a batch of data.
+        :param args: Any additional args that BaseOperator can use.
+        :param kwargs: Any additional keyword args that BaseOperator can use.
+        """
         super().__init__(*args, **kwargs)
         self._pandas_read_config = pandas_read_config
         self._postgres_load_config = postgres_load_config
