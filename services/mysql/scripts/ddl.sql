@@ -3,18 +3,18 @@ CREATE DATABASE IF NOT EXISTS retail;
 USE retail;
 
 CREATE TABLE IF NOT EXISTS region (
-  r_regionkey INTEGER PRIMARY KEY NOT NULL,
-  r_name      TEXT NOT NULL,
-  r_comment   TEXT,
+  r_regionkey  INTEGER PRIMARY KEY NOT NULL,
+  r_name       TEXT NOT NULL,
+  r_comment    TEXT,
   created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS nation (
-  n_nationkey INTEGER PRIMARY KEY NOT NULL,
-  n_name      TEXT NOT NULL,
-  n_regionkey INTEGER NOT NULL,
-  n_comment   TEXT,
+  n_nationkey   INTEGER PRIMARY KEY NOT NULL,
+  n_name        TEXT NOT NULL,
+  n_regionkey   INTEGER NOT NULL,
+  n_comment     TEXT,
   created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (n_regionkey) REFERENCES region(r_regionkey)
@@ -35,13 +35,13 @@ CREATE TABLE IF NOT EXISTS part (
 );
 
 CREATE TABLE IF NOT EXISTS supplier (
-  s_suppkey   INTEGER PRIMARY KEY NOT NULL,
-  s_name      VARCHAR(255) NOT NULL,
-  s_address   TEXT NOT NULL,
-  s_nationkey INTEGER NOT NULL,
-  s_phone     VARCHAR(255) NOT NULL,
-  s_acctbal   DECIMAL(10, 2) NOT NULL,
-  s_comment   TEXT NOT NULL,
+  s_suppkey     INTEGER PRIMARY KEY NOT NULL,
+  s_name        VARCHAR(255) NOT NULL,
+  s_address     TEXT NOT NULL,
+  s_nationkey   INTEGER NOT NULL,
+  s_phone       VARCHAR(255) NOT NULL,
+  s_acctbal     DECIMAL(10, 2) NOT NULL,
+  s_comment     TEXT NOT NULL,
   created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (s_nationkey) REFERENCES nation(n_nationkey)
@@ -69,8 +69,8 @@ CREATE TABLE IF NOT EXISTS customer (
   c_acctbal    DECIMAL(7, 2)   NOT NULL,
   c_mktsegment VARCHAR(255) NOT NULL,
   c_comment    TEXT NOT NULL,
-  created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (c_nationkey) REFERENCES nation(n_nationkey)
 );
 
@@ -84,8 +84,8 @@ CREATE TABLE IF NOT EXISTS orders (
   o_clerk         VARCHAR(128) NOT NULL,
   o_shippriority  VARCHAR(128) NOT NULL,
   o_comment       TEXT NOT NULL,
-  created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (o_custkey) REFERENCES customer(c_custkey)
 );
 
@@ -106,8 +106,8 @@ CREATE TABLE IF NOT EXISTS lineitem (
   l_shipinstruct  VARCHAR(255) NOT NULL,
   l_shipmode      VARCHAR(255) NOT NULL,
   l_comment       TEXT NOT NULL,
-  created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (l_orderkey, l_linenumber),
   FOREIGN KEY (l_orderkey) REFERENCES `orders`(o_orderkey),
   FOREIGN KEY (l_partkey, l_suppkey) REFERENCES partsupp(ps_partkey, ps_suppkey)
