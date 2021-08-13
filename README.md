@@ -9,7 +9,7 @@
 
 * [About the Project](#about-the-project)
   * [Technology Stack Used](#technology-stack-used)
-* [Business Requirements](https://github.com/1byte-yoda/dataengineer-test/blob/master/business_requirements.md)
+* [Business Requirements](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/business_requirements.md)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -20,10 +20,10 @@
 <!-- ABOUT THE PROJECT -->
 ### About The Project
 This batch pipeline aims to serve Retail Analytics Dashboard using semi-structured data (.tbl files)
-which was generated using [data_gen.txt](https://github.com/1byte-yoda/dataengineer-test/blob/master/data_gen.txt)
+which was generated using [data_gen.txt](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/data_gen.txt)
 
 #### Pipeline Flow
-1. Data was generated using [data_gen.txt](https://github.com/1byte-yoda/dataengineer-test/blob/master/data_gen.txt),
+1. Data was generated using [data_gen.txt](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/data_gen.txt),
 but in a real scenario it may come from different data sources ie. REST API, I used this approach just to
 simulate the incoming data.
 2. Data will then be copied to a MySQL database.
@@ -80,7 +80,7 @@ Python 3.9.1
 Once you have the requirements above, you can clone and spin up the project with ease.
 1. Clone the repo
 ```sh
-$ git clone https://github.com/1byte-yoda/dataengineer-test
+$ git clone https://github.com/1byte-yoda/retail-analytics-pipeline
 ````
 
 2. This step is crucial, go to the project's root directory and follow the instructions inside the data_gen.
