@@ -20,7 +20,9 @@
 <!-- ABOUT THE PROJECT -->
 ### About The Project
 This batch pipeline aims to serve Retail Analytics Dashboard using semi-structured data (.tbl files)
-which was generated using [data_gen.txt](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/data_gen.txt)
+which was generated using [data_gen.txt](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/data_gen.txt).
+
+For an elaborated details about this project, please check [business_requirements.md](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/business_requirements.md)
 
 #### Pipeline Flow
 1. Data was generated using [data_gen.txt](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/data_gen.txt),
