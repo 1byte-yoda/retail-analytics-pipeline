@@ -42,7 +42,7 @@ The pseudocode can be:
   
 ### Analytics Reports / Serving Layer
 For the reporting part, I've created SQL queries inside the 
-[dashboard_queries.sql](https://github.com/1byte-yoda/dataengineer_test-1/blob/develop/services/redash_analytics/scripts/dashboard_queries.sql) file.
+[dashboard_queries.sql](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/develop/services/redash_analytics/scripts/dashboard_queries.sql) file.
 You can check that file for more information.
 
 Mainly, using these data, the questions I am trying to answer are the following:
