@@ -6,7 +6,8 @@ Here, I removed the partsupp table entirely to simplify the model and to make it
 grain for the fact table,
 I also removed other candidates for dimension in the lineitem table that's not
 relevant to our business use case. Also, to be robust with Slowly Changing Dimension, I added 
-the updated_at attribute for each dimension tables.
+the updated_at attribute for each dimension tables. You can check [this file](https://github.com/1byte-yoda/retail-analytics-pipeline/blob/master/services/postgres_dw/scripts/table_ddl.sql)
+for the DDL queries used to build this schema.
 ![star-schema](docs/images/dw-star-schema.png)
 
 ### Business Rules
