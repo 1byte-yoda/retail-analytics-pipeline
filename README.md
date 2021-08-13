@@ -9,18 +9,32 @@
 
 * [About the Project](#about-the-project)
   * [Technology Stack Used](#technology-stack-used)
+* [Business Requirements](https://github.com/1byte-yoda/dataengineer-test/blob/master/business_requirements.md)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Common Errors](#common-errors)
-* [Test Answers](https://github.com/1byte-yoda/dataengineer-test/blob/master/ANSWERS.md)
+
 
 
 <!-- ABOUT THE PROJECT -->
 ### About The Project
-This Batch ETL pipeline aims to parse semi-structured data like .tbl files,
-stage it to a MySQL database, and then load it to a Star Schema
-which resides on a PostgreSQL database.
+This batch pipeline aims to serve Retail Analytics Dashboard using semi-structured data (.tbl files)
+which was generated using [data_gen.txt](https://github.com/1byte-yoda/dataengineer-test/blob/master/data_gen.txt)
+
+#### Pipeline Flow
+1. Data was generated using [data_gen.txt](https://github.com/1byte-yoda/dataengineer-test/blob/master/data_gen.txt),
+but in a real scenario it may come from different data sources ie. REST API, I used this approach just to
+simulate the incoming data.
+2. Data will then be copied to a MySQL database.
+Really, depending on the data user of this pipeline, but the main idea is to have the data staged at its
+raw form. For simplicity I used MySQL database, which can be also a leverage if the team are more of SQL 
+peeps. But we can also leverage Distributed File Storages like Azure Blob or AWS S3.
+3. A SQL Query will then run on top of the raw data from the MySQL database to transform it in such a way 
+   that it can be digested by the data warehouse (dimensional modeling).
+4. After the data has arrived the Data Warehouse, we can now create analytical queries
+to deliver insights to our data users.
+
 
 #### General Architecture
 ![General Architecture](docs/images/general-architecture.png)
